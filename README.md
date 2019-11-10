@@ -35,8 +35,19 @@ terraform {
         prefix = "terraform/state"
     }
 }
+
+module "main" {
+    source = "../modules"
+
+    # per environment settings here
+}
 ```
 
+Having a separate <i>root module</i> for each environment, you can gather all the necessary information in a single place that is separate for each one:
+* The complete backend configuration. No need to run separate `terraform init -backend-config`.
+* The variable values
+
+To switch between environments you switch between directories. Switching between envrionments with each having it's own backend configured there's little risk of accidentally tanglging up any of the above and applying the wrong thing to the wrong target.
 
 ### Source
 * [Basic Strucutre Best Practice](https://github.com/hashicorp/terraform/issues/18632)
