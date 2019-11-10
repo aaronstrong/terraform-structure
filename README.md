@@ -36,3 +36,7 @@ terraform {
     }
 }
 ```
+
+
+### Source
+* [Basic Strucutre Best Practice](https://github.com/hashicorp/terraform/issues/18632)
